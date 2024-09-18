@@ -1,5 +1,4 @@
-@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)package com.javaacademy.course.repositories;
+package com.javaacademy.course.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
