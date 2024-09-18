@@ -3,13 +3,13 @@
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.javaacademy.course.entities.User;
+import com.javaacademy.course.entities.Category;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 
-public interface UserRepository extends JpaRepository<User, Long>{
+public interface CategoryRepository extends JpaRepository<Category, Long>{
 
 }
