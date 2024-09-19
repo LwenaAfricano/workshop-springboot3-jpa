@@ -13,6 +13,8 @@ import com.javaacademy.course.repositories.UserRepository;
 import com.javaacademy.course.services.exceptions.DatabaseException;
 import com.javaacademy.course.services.exceptions.ResourceNotFoundException;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class UserService {
 
@@ -51,9 +53,15 @@ public class UserService {
 	
 	//atualizar um dado usuario
 	public User upDate(Long id, User obj) {
-		User entity = repository.getReferenceById(id);
-		updateData(entity, obj);
-		return repository.save(entity);
+		try{
+			User entity = repository.getOne(id);
+			updateData(entity, obj);
+			return repository.save(entity);
+		}
+		catch(EntityNotFoundException e) {
+			throw new ResourceNotFoundException(id);
+
+		}
 	}
 
 	private void updateData(User entity, User obj) {
